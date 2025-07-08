@@ -1,0 +1,131 @@
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath, amssymb, amsthm, mathrsfs, enumitem, fancyhdr, tikz, xcolor, hyperref}
+\usepackage[margin=1in]{geometry}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Joe Tran}
+\rhead{Math Notes}
+\cfoot{\thepage}
+
+% Theorem Environment
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{remark}{Remark}
+
+% Shortcuts
+\renewcommand{\AA}{\mathcal{A}}
+\newcommand{\BB}{\mathcal{B}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\DD}{\mathcal{D}}
+\newcommand{\EE}{\mathcal{E}}
+\newcommand{\FF}{\mathcal{F}}
+\newcommand{\GG}{\mathcal{G}}
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\II}{\mathcal{I}}
+\newcommand{\JJ}{\mathcal{J}}
+\newcommand{\KK}{\mathcal{K}}
+\newcommand{\LL}{\mathcal{L}}
+\newcommand{\MM}{\mathcal{M}}
+\newcommand{\NN}{\mathcal{N}}
+\newcommand{\OO}{\mathcal{O}}
+\newcommand{\PP}{\mathcal{P}}
+\newcommand{\QQ}{\mathcal{Q}}
+\newcommand{\RR}{\mathcal{R}}
+\renewcommand{\SS}{\mathcal{S}}
+\newcommand{\TT}{\mathcal{T}}
+\newcommand{\UU}{\mathcal{U}}
+\newcommand{\VV}{\mathcal{V}}
+\newcommand{\WW}{\mathcal{W}}
+\newcommand{\XX}{\mathcal{X}}
+\newcommand{\YY}{\mathcal{Y}}
+\newcommand{\ZZ}{\mathcal{Z}}
+
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\G}{\mathbb{G}}
+\renewcommand{\H}{\mathbb{H}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\J}{\mathbb{J}}
+\newcommand{\K}{\mathbb{K}}
+\renewcommand{\L}{\mathbb{L}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\O}{\mathbb{O}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\S}{\mathbb{S}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\U}{\mathbb{U}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\X}{\mathbb{X}}
+\newcommand{\Y}{\mathbb{Y}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\subset}{\subseteq}
+\newcommand{\e}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+
+\title{\textbf{Course Notes} \\[0.5em] \large York University}
+\author{Joe Tran}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\section{Preliminaries}
+
+\begin{definition}
+    A \textit{normed linear space} is a vector space $X$ over $\K$ equipped with a norm $\|\cdot\|$.
+\end{definition}
+
+\begin{example}
+    The space $\ell_p(\N)$, for $1 \leq p < \infty$, is defined by
+    \begin{equation*}
+        \ell_p(\N) = \left\{x = (x_n)_{n = 1}^{\infty} \subseteq \K : \sum_{n = 1}^{\infty} |x_n|^p < \infty\right\}
+    \end{equation*}
+    with the norm $\|x\|_p = \left(\sum_{n = 1}^{\infty} |x_n|^p\right)^{\frac{1}{p}}$.
+\end{example}
+
+\section{Linear Operators}
+
+\begin{definition}
+    A linear operator $T : X \to Y$ between normed linear spaces is \textit{bounded} if there exists $M > 0$ such that
+    \begin{equation*}
+        \|Tx\|_Y \leq M\|x\|_X
+    \end{equation*}
+    for all $x \in X$.
+\end{definition}
+
+\begin{theorem}[Uniform Boundedness Principle]
+    Let $\{T_{\alpha}\}_{\alpha \in A}$ be a family of bounded linear operators from $X$ to $Y$. If for all $x \in X$, the set $\{\|T_{\alpha}x\|\}_{\alpha \in A}$ is bounded, then
+    \begin{equation*}
+        \sup_{\alpha \in A} \|T_{\alpha}\| < \infty.
+    \end{equation*}
+\end{theorem}
+    
+\end{document}
