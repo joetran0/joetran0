@@ -1,91 +1,189 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-<title>Joe Tran</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-.fa-anchor,.fa-coffee {font-size:200px}
-</style>
-  <link rel="icon" href="https://latex.codecogs.com/png.image?\huge&space;\dpi{300}\bg{black}\color{red}\boldsymbol{\mathcal{J}}" type="image/x-icon"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Joe Tran | York University</title>
+  <style>
+  	body {
+    	font-family: "Segoe UI", sans-serif;
+    	margin: 0;
+    	padding: 0;
+    	line-height: 1.6;
+    	background-color: #F4F4F4;
+    	color: #333
+    }
+    
+    header {
+    	background: #004080;
+    	color: #FFF;
+    	padding: 2rem 1rem;
+    	text-align: center;
+    }
+    
+    nav {
+    	display: flex;
+    	justify-content: center;
+    	background: #E0E0E0;
+    	padding: 0.5rem;
+    }
+    
+    nav a {
+    	margin: 0 1rem;
+    	text-decoration: none;
+    	color: #004080;
+    	font-weight: bold;
+    }
+    
+    section {
+    	max-width: 800px;
+    	margin: 2rem auto;
+    	background: #FFF;
+    	padding: 2rem;
+    	border-radius: 8px;
+    }
+    
+    footer {
+    	text-align: center;
+    	padding: 1rem;
+    	background: #004080;
+    	color: white;
+    }
+    
+    h2 {
+    	color: #004080
+    }
+  </style>
+  <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
+
 <body>
-
-<!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-pale-blue w3-card w3-left-align w3-large">
-    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-pale-blue" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-    <a href="teaching.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Teaching</a>
-    <a href="cv.pdf" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">CV</a>
-    <a href="courses.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Courses</a>
-    <a href="projects.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Projects</a>
-    <a href="https://joetran0.github.io/Winter-2025/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Winter 2025</a>
-    <a href="notes.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Notes</a>
-    <a href="aboutme.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About Me</a>
-  </div>
-
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="teaching.html" class="w3-bar-item w3-button w3-padding-large">Teaching</a>
-    <a href="cv.pdf" class="w3-bar-item w3-button w3-padding-large">CV</a>
-    <a href="courses.html" class="w3-bar-item w3-button w3-padding-large">Courses</a>
-    <a href="projects.html" class="w3-bar-item w3-button w3-padding-large">Projects</a>
-    <a href="https://joetran0.github.io/Winter-2025/" class="w3-bar-item w3-button w3-padding-large">Winter 2025</a>
-    <a href="notes.html" class="w3-bar-item w3-button w3-padding-large">Notes</a>
-    <a href="aboutme.html" class="w3-bar-item w3-button w3-padding-large">About Me</a>
-  </div>
-</div>
-
-<!-- Header -->
-<header class="w3-container w3-pale-blue w3-center" style="padding:128px 16px">
-  <h1 class="w3-margin w3-jumbo">Home</h1>
-  <p class="w3-large">Welcome to my home page!</p>
-</header>
-
-<!-- First Grid -->
-<div class="w3-row-padding w3-padding-64 w3-container">
-  <div class="w3-content">
-    <h1>Contact Information</h1>
-    <p><ul>
-      <li>Joe Tran</li>
-      <li>Graduate Student, Mathematics and Statistics (Pure Mathematics)</li>
-      <li>Department of Mathematics and Statistics</li>
-      <li>York University</li>
-      <li>Toronto, Ontario, Canada</li>
-      <li><a href="mailto:joetran43@gmail.com">joetran43@gmail.com</a></li>
-      <li><a href="https://www.linkedin.com/in/joetran0/">LinkedIn</a></li>
-    </ul></p>
-
-    <p>As always, this website is always under construction. I will update this website whenever I need to.</p>
-  </div>
-</div>
-
-<div class="w3-container w3-gray w3-center w3-opacity w3-padding-64">
-    <h1 class="w3-margin w3-large"><i>"If people do not believe that mathematics is simple, it is only because they do not realize how complicated life is."</i> - John von Neumann</h1>
-</div>
-
-  <hr>
-
-        <p class="w3-center">© Joe Tran, Winter 2025</p>
-
-<script>
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-</script>
-
+  <header>
+  	<h1>
+      Joe Tran
+    </h1>
+    
+    <p>
+      Incoming PhD Student in Applied Mathematics | York University
+    </p>
+  </header>
+  
+  <nav>
+  	<a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#resources">Resources</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  
+  <section id="about">
+  	<h2>
+      About Me
+    </h2>
+    
+    <p>
+      I am current a MA student in Pure Mathematics at York University, and an incoming PhD student in Applied Mathematics at York University. My current focus is on Functional Analysis and Banach Space Theory, but as I transition into Applied Mathematics, my focus will be on Dynamical Systems and Mathematical Epidemiology. My academic journey has recently shifted toward more applied directions, especially in Mathematical Epidemiology. I care deeply about education and have received highly positive feedback from students as a TA.
+    </p>
+  </section>
+  
+  <section id="research">
+  	<h2>
+      Research
+    </h2>
+    
+    <h3>
+      Interests
+    </h3>
+    
+    <ul>
+      <li>Mathematical modeling in epidemiology</li>
+      <li>Dynamical systems</li>
+      <li>Functional analysis and operator theory</li>
+      <li>Banach space geometry</li>
+    </ul>
+    
+    <h3>
+      Selected Work
+    </h3>
+    
+    <ul>
+      <li>"Singular perturbation analysis of a two-time scale model of vector-borne disease: Zika virus model as a case study", 2025 <a href="https://www.researchgate.net/publication/391352721" target="_blank">ResearchGate</a>.</li>
+      <li>"Projections and Complemented Subspaces in Banach Spaces" (2025, in progress)</li>
+    </ul>
+  </section>
+  
+  <section id="teaching">
+  	<h2>
+      Teaching
+    </h2>
+    
+    <h3>
+      Current Courses
+    </h3>
+    
+    <ul>
+      <li>Summer 2025: MATH 1014 Applied Calculus II, Section A (TA)</li>
+      <li>Summer 2025: MATH 2015 Applied Multivariate and Vector Calculus, Section A (TA)</li>
+    </ul>
+    
+    <h3>
+      Past Courses
+    </h3>
+    
+    <ul>
+      <li>Winter 2025: MATH 1200 Problems, Conjectures, and Proofs, Section N (TL)</li>
+      <li>Winter 2025: MATH 1300 Differential Calculus with Applications, Section N (TA)</li>
+      <li>Winter 2025: MATH 1507 Mathematics II for Health and Biological Sciences, Section M (TA)</li>
+      <li>Winter 2025: MATH 2022 Linear Algebra II, Section M (TA)</li>
+      <li>Fall 2024: MATH 1013 Applied Calculus I, Section I (TA)</li>
+      <li>Fall 2024: MATH 1200 Problems, Conjectures, and Proofs, Section B (TL)</li>
+      <li>Fall 2024: MATH 1200 Problems, Conjectures, and Proofs, Section C (TL)</li>
+      <li>Fall 2024: MATH 2001 Real Analysis I, Section A (TA)</li>
+      <li>Summer 2024: MATH 1506 Mathematics I for the Biological and Health Sciences, Section A (TL)</li>
+      <li>Summer 2024: MATH 1506 Mathematics I for the Biological and Health Sciences, Section B (TL)</li>
+      <li>Summer 2024: Math & Stats Help Center</li>
+      <li>Winter 2024: MATH 1013 Applied Calculus I, Section M (TA)</li>
+      <li>Winter 2024: MATH 1013 Applied Calculus I, Section N (TA)</li>
+      <li>Winter 2024: MATH 1014 Applied Calculus II, All Sections (TA)</li>
+      <li>Winter 2024: MATH 2022 Linear Algebra II, Section M (TA)</li>
+      <li>Fall 2023: MATH 1013 Applied Calculus I, Section A (TA)</li>
+      <li>Fall 2023: MATH 1013 Applied Calculus I, Section D (TA)</li>
+      <li>Fall 2023: MATH 1025 Applied Linear Algebra, Section A (TA)</li>
+      <li>Fall 2023: MATH 1200 Problems, Conjectures, and Proofs, Section A (TA/TL)</li>
+      <li>Summer 2023: MATH 1014 Applied Calculus II, Section B (TA)</li>
+      <li>Summer 2023: MATH 1021 Linear Algebra I, Section A (TA)</li>
+      <li>Summer 2023: MATH 1300 Differential Calculus with Applications, Section A (TA)</li>
+      <li>Summer 2023: MATH 1581 Business Mathematics I, Section A (TA)</li>
+    </ul>
+  </section>
+  
+  <section id="resources">
+  	<h2>
+      Resources
+    </h2>
+    
+    <ul>
+      <li><a href="#">LaTeX Template for Math Notes (coming soon)</a></li>
+      <li><a href="M2022-LectureNotes.pdf">MATH 2022 Lecture Notes</a></li>
+    </ul>
+  </section>
+  
+  <section id="contact">
+  	<h2>
+      Contact
+    </h2>
+    
+    <p>
+      Email: <a href="mailto:jtran0@yorku.ca">jtran0@yorku.ca</a>
+    </p>
+    
+    <p>
+      <a href="https://www.linkedin.com/in/joetran0/" target="_blank">LinkedIn</a> | <a href="https://www.researchgate.net/profile/Joe-Tran" target="_blank">ResearchGate</a>
+    </p>
+  </section>
+  
+  <footer>
+  <p>
+  	&copy; 2025 Joe Tran  
+  </p>
+  </footer>
 </body>
-</html>
