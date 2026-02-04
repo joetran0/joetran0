@@ -1,208 +1,519 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Joe Tran | York University</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Joe Tran | Applied Mathematics</title>
+  <meta name="description" content="Personal website of Joe Tran: research, teaching, publications, and materials." />
+
   <style>
-  	body {
-    	font-family: "Segoe UI", sans-serif;
-    	margin: 0;
-    	padding: 0;
-    	line-height: 1.6;
-    	background-color: #F4F4F4;
-    	color: #333
+    :root{
+      --bg: #0b1020;
+      --panel: rgba(255,255,255,.06);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --border: rgba(255,255,255,.12);
+      --accent: #7dd3fc; /* light blue */
+      --accent2: #c4b5fd; /* soft violet */
+      --shadow: 0 12px 40px rgba(0,0,0,.28);
+      --radius: 18px;
+      --max: 1050px;
     }
-    
-    header {
-    	background: #4400AB;
-    	color: #FFF;
-    	padding: 2rem 1rem;
-    	text-align: center;
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior: smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(1000px 600px at 20% -10%, rgba(125,211,252,.22), transparent 55%),
+        radial-gradient(900px 600px at 90% 10%, rgba(196,181,253,.18), transparent 55%),
+        radial-gradient(900px 900px at 50% 110%, rgba(34,211,238,.10), transparent 60%),
+        var(--bg);
+      line-height: 1.55;
     }
-    
-    nav {
-    	display: flex;
-    	justify-content: center;
-    	background: #E0E0E0;
-    	padding: 0.5rem;
+    a{ color: var(--accent); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    /* Top nav */
+    .nav{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,16,32,.65);
+      border-bottom: 1px solid var(--border);
     }
-    
-    nav a {
-    	margin: 0 1rem;
-    	text-decoration: none;
-    	color: #4400ab;
-    	font-weight: bold;
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 0;
     }
-    
-    section {
-    	max-width: 800px;
-    	margin: 2rem auto;
-    	background: #FFF;
-    	padding: 2rem;
-    	border-radius: 8px;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: .2px;
+      white-space: nowrap;
     }
-    
-    footer {
-    	text-align: center;
-    	padding: 1rem;
-    	background: #4400ab;
-    	color: white;
+    .dot{
+      width: 12px; height: 12px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 6px rgba(125,211,252,.12);
     }
-    
-    h2 {
-    	color: #4400ab
+    .links{
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-size: 14px;
+    }
+    .links a{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+    .links a:hover{
+      border-color: var(--border);
+      background: rgba(255,255,255,.04);
+      text-decoration: none;
+    }
+
+    /* Hero */
+    header.hero{
+      padding: 46px 0 22px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .card{
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-main{
+      padding: 26px;
+    }
+    h1{
+      margin: 0 0 10px;
+      font-size: clamp(28px, 3.6vw, 40px);
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+    }
+    .subtitle{
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 70ch;
+    }
+    .chips{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0 0;
+    }
+    .chip{
+      font-size: 13px;
+      color: rgba(255,255,255,.84);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+    .hero-side{
+      padding: 20px;
+      display:flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .profile{
+      display:flex;
+      gap: 14px;
+      align-items: center;
+    }
+    .avatar{
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(125,211,252,.35), rgba(196,181,253,.30));
+      border: 1px solid var(--border);
+    }
+    .profile h2{
+      margin: 0;
+      font-size: 16px;
+    }
+    .profile p{
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .cta{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-size: 14px;
+      text-decoration: none;
+    }
+    .btn.primary{
+      border-color: rgba(125,211,252,.35);
+      background: linear-gradient(135deg, rgba(125,211,252,.18), rgba(196,181,253,.14));
+    }
+    .btn:hover{ text-decoration:none; filter: brightness(1.05); }
+
+    /* Sections */
+    main{ padding: 12px 0 54px; }
+    section{
+      margin-top: 18px;
+      padding: 22px;
+    }
+    section h3{
+      margin: 0 0 12px;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .item{
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+    }
+    .item h4{
+      margin: 0 0 6px;
+      font-size: 15px;
+    }
+    .meta{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    ul{
+      margin: 10px 0 0 18px;
+      color: rgba(255,255,255,.86);
+    }
+    li{ margin: 6px 0; }
+    .kvs{
+      display:grid;
+      grid-template-columns: 120px 1fr;
+      gap: 8px 14px;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+    .kvs div:nth-child(odd){
+      color: var(--muted);
+    }
+    .pub{
+      display:flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .pub .title{ font-weight: 650; }
+    .pub .where{ color: var(--muted); font-size: 13px; }
+    .pub .links{ gap: 10px; justify-content: flex-start; padding: 0; }
+    .pub .links a{ padding: 0; border: none; }
+
+    footer{
+      padding: 24px 0 36px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align:center;
+    }
+
+    /* Responsive */
+    @media (max-width: 880px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .grid-2{ grid-template-columns: 1fr; }
+      .links{ gap: 8px; }
     }
   </style>
-  <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 
 <body>
-  <header>
-  	<h1>
-      Joe Tran
-    </h1>
-    
-    <p>
-      Incoming PhD Student in Applied Mathematics | York University
-    </p>
-  </header>
-  
-  <nav>
-  	<a href="#about">About</a>
-    <a href="#research">Research</a>
-    <a href="#teaching">Teaching</a>
-    <a href="#resources">Resources</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  
-  <section id="about">
-  	<h2>
-      About Me
-    </h2>
-    
-    <p>
-      I am currently an MA student in Pure Mathematics at York University and an incoming PhD student in Applied Mathematics at the same institution. My research background lies in functional analysis and Banach space theory. As I transition into applied mathematics, my focus is shifting toward dynamical systems and mathematical epidemiology—fields that allow me to explore real-world problems through mathematical modeling. I am also passionate about teaching and have consistently received positive feedback from students for my clarity, support, and enthusiasm as a TA.
-    </p>
-    
-        <p>
-      <a href="cv.pdf">Curriculum Vitae</a>
-    </p>
-  </section>
-  
-  <section id="research">
-  	<h2>
-      Research
-    </h2>
-    
-    <h3>
-      Interests
-    </h3>
-    
-    <ul>
-      <li>Mathematical modeling in epidemiology</li>
-      <li>Dynamical systems</li>
-      <li>Functional analysis and operator theory</li>
-      <li>Banach space geometry</li>
-    </ul>
-    
-    <h3>
-      Selected Work
-    </h3>
-    
-    <ul>
-      <li>"Singular perturbation analysis of a two-time scale model of vector-borne disease: Zika virus model as a case study", 2025 <a href="https://www.researchgate.net/publication/391352721" target="_blank">ResearchGate</a>.</li>
-      <li>"Projections and Complemented Subspaces in Banach Spaces", 2025 <a href="Survey Paper.pdf">PDF</a></li>
-    </ul>
-  </section>
-  
-  <section id="teaching">
-  	<h2>
-      Teaching
-    </h2>
-    
-    <h3>
-      Current Courses
-    </h3>
-    
-    <ul>
-      <li>Fall 2025: MATH 1200 Problems, Conjectures, and Proofs, Section A (TL)</li>
-      <li>Fall 2025: MATH 1200 Problems, Conjectures, and Proofs, Section B (TL)</li>
-      <li>Fall 2025: MATH 1310 Integral Calculus with Applications, Section A (TA/TL)</li>
-      <li>Fall 2025: MATH 2001 Real Analysis I, Section A (TA)</li>
-      <li>Fall 2025: MATH 2015 Applied Multivariate and Vector Calculus, Section A (TA)</li>
-      <li>Fall 2025: Math & Stats Help Center</li>
-    </ul>
-    
-    <h3>
-      Past Courses
-    </h3>
-    
-    <ul>
-      <li>Summer 2025: MATH 1014 Applied Calculus II, Section A (TA)</li>
-      <li>Summer 2025: MATH 2015 Applied Multivariate and Vector Calculus, Section A (TA)</li>
-      <li>Winter 2025: MATH 1200 Problems, Conjectures, and Proofs, Section N (TL)</li>
-      <li>Winter 2025: MATH 1300 Differential Calculus with Applications, Section N (TA)</li>
-      <li>Winter 2025: MATH 1507 Mathematics II for Health and Biological Sciences, Section M (TA)</li>
-      <li>Winter 2025: MATH 2022 Linear Algebra II, Section M (TA)</li>
-      <li>Fall 2024: MATH 1013 Applied Calculus I, Section I (TA)</li>
-      <li>Fall 2024: MATH 1200 Problems, Conjectures, and Proofs, Section B (TL)</li>
-      <li>Fall 2024: MATH 1200 Problems, Conjectures, and Proofs, Section C (TL)</li>
-      <li>Fall 2024: MATH 2001 Real Analysis I, Section A (TA)</li>
-      <li>Summer 2024: MATH 1506 Mathematics I for the Biological and Health Sciences, Section A (TL)</li>
-      <li>Summer 2024: MATH 1506 Mathematics I for the Biological and Health Sciences, Section B (TL)</li>
-      <li>Summer 2024: Math & Stats Help Center</li>
-      <li>Winter 2024: MATH 1013 Applied Calculus I, Section M (TA)</li>
-      <li>Winter 2024: MATH 1013 Applied Calculus I, Section N (TA)</li>
-      <li>Winter 2024: MATH 1014 Applied Calculus II, All Sections (TA)</li>
-      <li>Winter 2024: MATH 2022 Linear Algebra II, Section M (TA)</li>
-      <li>Fall 2023: MATH 1013 Applied Calculus I, Section A (TA)</li>
-      <li>Fall 2023: MATH 1013 Applied Calculus I, Section D (TA)</li>
-      <li>Fall 2023: MATH 1025 Applied Linear Algebra, Section A (TA)</li>
-      <li>Fall 2023: MATH 1200 Problems, Conjectures, and Proofs, Section A (TA/TL)</li>
-      <li>Summer 2023: MATH 1014 Applied Calculus II, Section B (TA)</li>
-      <li>Summer 2023: MATH 1021 Linear Algebra I, Section A (TA)</li>
-      <li>Summer 2023: MATH 1300 Differential Calculus with Applications, Section A (TA)</li>
-      <li>Summer 2023: MATH 1581 Business Mathematics I, Section A (TA)</li>
-    </ul>
-  </section>
-  
-  <section id="resources">
-  	<h2>
-      Resources
-    </h2>
-    
-    <ul>
-      <li><a href="math-notes-template.tex">LaTeX Template for Math Notes</a></li>
-      <li><a href="M2022-LectureNotes.pdf">MATH 2022 Linear Algebra II Notes (First Edition Notes)</a></li>
-      <li><a href="M3410-LectureNotes.pdf">MATH 3410 Complex Variables Notes Lecture Notes (Under Construction; Last Updated: July 16, 2025)</a></li>
-      <li><a href="M6350-LectureNotes.pdf">MATH 6350: Partial Differential Equations Notes</a></li>
-      <li><a href="M6651-LectureNotes.pdf">MATH 6651: Advanced Numerical Methods Notes</a></li>
-    </ul>
-  </section>
-  
-  <section id="contact">
-  	<h2>
-      Contact
-    </h2>
-    
-    <p>
-      Email: <a href="mailto:jtran0@yorku.ca">jtran0@yorku.ca</a>
-    </p>
-    
-    <p>
-      <a href="https://www.linkedin.com/in/joetran0/" target="_blank">LinkedIn</a> | <a href="https://www.researchgate.net/profile/Joe-Tran-3" target="_blank">ResearchGate</a>
-    </p>
-  </section>
-  
-  <footer>
-  <p>
-  	&copy; 2025 Joe Tran  
-  </p>
-  </footer>
+    <nav class="nav">
+        <div class="wrap nav-inner">
+            <div class="brand">
+                <span class="dot" aria-hidden="true"></span>
+                <span>Joe Tran</span>
+            </div>
+
+            <div class="links" aria-label="Primary">
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#teaching">Teaching</a>
+                <a href="#research">Research</a>
+                <a href="#publications">Publications</a>
+                <a href="#materials">Materials</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="wrap hero-grid">
+            <div class="card hero-main">
+                <h1>Joe Tran</h1>
+                <p class="subtitle">
+                    Ph.D. student in Applied Mathematics (York University). Interests: mathematical modeling, dynamical systems, epidemiology, and operator-theoretic approaches to threshold phenomena.
+                </p>
+
+                <div class="cta">
+                    <a class="btn primary" href="#contact">Get in touch</a>
+                    <a class="btn" href="cv.pdf" target="_blank" rel="noopener"> CV</a>
+                    <a class="btn" href="https://scholar.google.ca/citations?user=uGyocnkAAAAJ&hl=en" rel="noopener">Google Scholar</a>
+                </div>
+            </div>
+
+            <aside class="card hero-side">
+        <div class="profile">
+          <img src="image.png" alt="Joe Tran" class="avatar">
+          <div>
+            <h2>Applied Math • Teaching</h2>
+            <p>Toronto, Canada</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <h4>Quick Links</h4>
+          <p class="meta" style="margin-top:6px;">
+            <a href="https://joetran0.github.io/joetran0/">Website</a> ·
+            <a href="mailto:joetran0@yorku.ca">Email</a> ·
+            <a href="https://www.linkedin.com/in/joetran0">LinkedIn</a>
+          </p>
+        </div>
+      </aside>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <!-- About -->
+         <section id="about" class="card">
+            <h3>About Me</h3>
+            <div class="grid-2">
+                <div class="item">
+                    <h4>Bio</h4>
+                    <p class="meta">
+                        I am a Ph.D. student in Applied Mathematics at York University. My research interests lie at the intersection of mathematical epidemiology, dynamical systems, and functional analysis, with a particular focus on threshold phenomena such as the basic reproduction number and related spectral criteria in structured models.
+                        
+                        <br><br>
+                        
+                        My work involves the analysis of compartmental and structured epidemic models (including SEIR-type and within-host systems), where I study existence and stability of equilibria, bifurcation behaviour, and the role of parameters in disease invasion and persistence. I am especially interested in operator-theoretic and functional-analytic approaches that provide rigorous foundations for threshold dynamics in both finite- and infinite-dimensional setting.
+                        
+                        <br><br>
+                        
+                        In addition to theoretical analysis, I engage in numerical simulation and computational modeling to complement analytical results and explore biologically relevant scenarios. I am also passionate about teaching and mathematical communication, and I enjoy developing clear, structure materials that help students build intuition and confidence in mathematics.
+                    <p></p>
+                </div>
+
+                <div class="item">
+                    <h4>Research Interests</h4>
+                    <ul class="meta">
+                        <li>Threshold dynamics, invasion criteria, and reproduction numbers</li>
+                        <li>Compartmental and structured epidemic models (ODE, PDE, integro-differential)</li>
+                        <li>Stability, bifurcation, and parameter sensitivity</li>
+                        <li>Numerical simulation and model calibration</li>
+                    </ul>
+                </div>
+            </div>
+         </section>
+
+        <!-- Education -->
+        <section id="education" class="card">
+            <h3>Education</h3>
+            <div class="grid-2">
+                <div class="item">
+                    <h4>Ph.D. in Applied Mathematics</h4>
+                    <p class="meta">York University, Toronto, Ontario, Canada (Expected 2029)</p>
+                    <div class="kvs">
+                        <div>Supervisor</div><div>Woldegerima Assefa Woldegerima</div>
+                        <div>Focus</div><div>Mathematical epidemiology, thresholds, dynamical systems</div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <h4>M.A. in Pure Mathematics</h4>
+                    <p class="meta">York University, Toronto, Ontario, Canada (2025)</p>
+                    <div class="kvs">
+                        <div>Supervisor</div><div>Pavlos Motakis</div>
+                        <div>Focus</div><div>Functional analysis, Banach space theory</div>
+                        <div>Survey Paper</div><div>Projections and Complemented Subspaces in Banach Spaces</div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <h4>B.Sc. in Mathematics for Education</h4>
+                    <p class="meta">York University, Toronto, Ontario, Canada (2024)</p>
+                    <div class="kvs">
+                        <div>Focus</div><div>Analysis, Differential equations, Computational mathematics</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaching -->
+        <section id="teaching" class="card">
+            <h3>Teaching</h3>
+            <div class="grid-2">
+                <div class="item">
+                    <h4>Instructor / Teaching Assistant</h4>
+                    <p class="meta">York University</p>
+                    <ul class="meta">
+                        <li>Winter 2026: MATH 1200, Problems, Conjectures, and Proofs, Sections M and N (TL)</li>
+                        <li>Winter 2026: MATH 1300, Differential Calculus with Applications, Section M (TL)</li>
+                        <li>Winter 2026: Math Help Center</li>
+                        
+                        <li>Fall 2025: MATH 1200, Problems, Conjectures, and Proofs, Section A and B (TL)</li>
+                        <li>Fall 2025: MATH 1310, Integral Calculus with Applications, Section A (TL)</li>
+                        <li>Fall 2025: MATH 2001, Real Analysis I, Section A (TA)</li>
+                        <li>Fall 2025: MATH 2015, Applied Multivariate and Vector Calculus, Section A (TA)</li>
+                        <li>Summer 2025: MATH 1014, Applied Calculus II, Section A (TA)</li>
+                        <li>Summer 2025: MATH 2015, Applied Multivariate and Vector Calculus, Section A (TA)</li>
+                        <li>Winter 2025: MATH 1200, Problems, Conjectures, and Proofs, Section N (TL)</li>
+                        <li>Winter 2025: MATH 1300, Differential Calculus with Applications, Section M (TA)</li>
+                        <li>Winter 2025: MATH 1507, Mathematics II for Health and Biological Sciences, Section M (TA)</li>
+                        <li>Winter 2025: MATH 2022, Linear Algebra II, Section M (TA)</li>
+                        <li>Fall 2024: MATH 1013, Applied Calculus II, Section I (TA)</li>
+                        <li>Fall 2024: MATH 1200, Problems, Conjectures, and Proofs, Sections B and C (TL)</li>
+                        <li>Fall 2024: MATH 2001, Real Analysis I, Section A (TA)</li>
+                        <li>Summer 2024: MATH 1506, Mathematics I for Health and Biological Sciences, Sections A and B (TL)</li>
+                        <li>Summer 2024: Math Help Center</li>
+                        <li>Winter 2024: MATH 1013, Applied Calculus I, Sections M and N (TA)</li>
+                        <li>Winter 2024: MATH 1014, Applied Calculus II, All Sections (TA)</li>
+                        <li>Winter 2024: MATH 2022, Linear Algebra II, Section M (TA)</li>
+                        <li>Fall 2023: MATH 1013, Applied Calculus I, Sections A and D (TA)</li>
+                        <li>Fall 2023: MATH 1025, Applied Linear Algebra, Section A (TA)</li>
+                        <li>Fall 2023: MATH 1200, Problems, Conjectures, and Proofs, Section A (TA/TL)</li>
+                        <li>Summer 2023: MATH 1014, Applied Calculus II, Section B (TA)</li>
+                        <li>Summer 2023: MATH 1021, Linear Algebra I, Section A (TA)</li>
+                        <li>Summer 2023: MATH 1300, Differential Calculus with Applications, Section A (TA)</li>
+                        <li>Summer 2023: MATH 1581, Business Mathematics I, Section A (TA)</li>
+                    </ul>
+                </div>
+                <div class="item">
+                  <h4>Teaching Philosophy</h4>
+
+                  <p class="meta">
+                    My teaching philosophy is grounded in clarity, structure, and conceptual understanding. I believe that mathematics should be presented as a coherent system of ideas rather than a collection of formulas, and my goal as an instructor is to help students see the underlying structure that connects definitions, theorems, and applications.
+
+                    <br><br>
+
+                    I emphasize precise mathematical language and logical reasoning, while remaining attentive to the challenges students face when encountering abstract concepts for the first time. I strive to break complex ideas into accessible components, using carefully chosen examples and visual intuition to bridge the gap between formal theory and student understanding. In tutorials and office hours, I encourage students to articulate their reasoning, ask questions freely, and engage actively with the material.
+
+                    <br><br>
+
+                    I also believe that learning mathematics requires practice paired with feedback. I design problem sets and discussions that progress from foundational skills to deeper conceptual questions, allowing students to build confidence while developing mathematical maturity. Mistakes are treated as a natural and valuable part of the learning process, and I work to create a supportive environment where students feel comfortable exploring ideas and refining their understanding.
+
+                    <br><br>
+                    
+                    Ultimately, my aim is not only to help students succeed in a particular course, but also to equip them with problem-solving skills, critical thinking habits, and a lasting appreciation for the role of mathematics in science and beyond.
+                  </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="card">
+          <h3>Research</h3>
+          <div class="item">
+            <h4>Current Directions</h4>
+            <ul>
+              <li>Operator-theoretic threshold criteria for structured epidemic models</li>
+              <li>Extensions of compartmental models</li>
+              <li>Within-host modeling with immune interactions and infection subsystems</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="publications" card="card">
+          <h3>Research and Publications</h3>
+          <div class="item pub">
+            <div class="title">Singular perturbation analysis of a two-time scale model of vector-borne disease: Zika virus model as a case study</div>
+            <div class="where">J. Tran, W. A. Woldegerima · 2025</div>
+            <div class="links">
+              <a href="https://www.sciencedirect.com/science/article/pii/S096007792500222X/pdfft?md5=e28b3e5c469d4c0d68ffbeb51ba47807&pid=1-s2.0-S096007792500222X-main.pdf">PDF</a>
+              <a href="https://www.researchgate.net/publication/391352721_Singular_perturbation_analysis_of_a_two-time_scale_model_of_vector-borne_disease_Zika_virus_model_as_a_case_study">ResearchGate</a>
+              <a href="https://www.sciencedirect.com/science/article/pii/S096007792500222X">ScienceDirect</a>
+            </div>
+          </div>
+
+          <div class="item pub" style="margin-top:12px;">
+            <div class="title">Survey Paper: Projections and Complemented Subspaces in Banach Spaces</div>
+            <div class="where">J. Tran · 2025</div>
+            <div class="links">
+              <a href="#">PDF</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="materials" card="card">
+          <h3>Materials</h3>
+            <div class="item">
+              <ul class="meta">
+                <li><a href="#">MATH 1300: Differential Calculus with Applications (Under Construction for Winter 2026)</a></li>
+                <li><a href="#">MATH 2022: Linear Algebra II</a></li>
+                <li><a href="#">MATH 6350: Partial Differential Equations</a></li>
+                <li><a href="#">MATH 6651: Advanced Numerical Methods</a></li>
+              </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="card">
+          <h3>Contact Information</h3>
+              <p class="meta">
+                Joe Tran<br>
+                Ph.D. Student, Applied Mathematics<br>
+                Ross Building, N611<br>
+                Department of Mathematics and Statistics<br>
+                York University<br>
+                Toronto, Ontario, Canada<br>
+                <a href="mailto:joetran0@yorku.ca">joetran0@yorku.ca</a>
+              </p>
+        </section>
+
+        <footer>
+          © <span id="year"></span> Joe Tran · Last Updated: <span id="updated"></span>
+        </footer>
+    </main>
+
+    <script>
+    // Auto-fill footer dates
+    const now = new Date();
+    document.getElementById("year").textContent = now.getFullYear();
+    document.getElementById("updated").textContent = now.toLocaleDateString(undefined, {
+      year: "numeric", month: "short", day: "numeric"
+    });
+  </script>
 </body>
-
-
-
-
-
-
